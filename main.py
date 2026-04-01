@@ -43,9 +43,6 @@ class ConfigResponse(BaseModel):
 async def translate_text(request: TranslationRequest):
     prompt = f"請將以下這段文字翻譯成 {request.target_language}。只需輸出翻譯結果，不要有任何其他解釋：\n{request.text}"
     try:
-        # 連線至指定的 Ollama 伺服器
-        client = ollama.Client(host=OLLAMA_HOST)
-        
         response = ollama_client.chat(model=TARGET_MODEL, messages=[
             {'role': 'user', 'content': prompt}
         ])
