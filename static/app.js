@@ -21,11 +21,7 @@ async function updateModelStatus() {
 // --- 2. 監聽事件：當網頁 DOM 結構載入完成時，立刻執行上述函式 ---
 document.addEventListener('DOMContentLoaded', updateModelStatus);
 
-// --- 3. 原本的「翻譯按鈕」邏輯 ---
-document.getElementById('translate-btn').addEventListener('click', async () => {
-    // ... 保留你原本寫好的 fetch POST 翻譯邏輯 ...
-});
-
+// --- 3. 翻譯按鈕 ---
 document.getElementById('translate-btn').addEventListener('click', async () => {
     const sourceText = document.getElementById('source-text').value;
     const targetLang = document.getElementById('target-lang').value;

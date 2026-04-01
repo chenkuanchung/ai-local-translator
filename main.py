@@ -12,6 +12,7 @@ load_dotenv()
 # 讀取環境變數 (此時完全由外部或 .env 決定，程式內不再需要寫死預設值)
 TARGET_MODEL = os.getenv("MODEL_NAME", "qwen2.5:0.5b")
 OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
+ollama_client = ollama.Client(host=OLLAMA_HOST) # 建立共用的 Client
 
 app = FastAPI(title="LocalTrans API")
 
@@ -45,7 +46,7 @@ async def translate_text(request: TranslationRequest):
         # 連線至指定的 Ollama 伺服器
         client = ollama.Client(host=OLLAMA_HOST)
         
-        response = client.chat(model=TARGET_MODEL, messages=[
+        response = ollama_client.chat(model=TARGET_MODEL, messages=[
             {'role': 'user', 'content': prompt}
         ])
         
