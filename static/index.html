@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI.ing ｜ 正在AI中 - 智慧翻譯系統</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI.ing <span>| 智慧翻譯節點</span></h1>
+            <p class="status-bar">目前使用模型: <strong id="current-model">正在連線確認中...</strong></p>
+        </header>
+        
+        <main>
+            <div class="input-section">
+                <select id="target-lang">
+                    <option value="繁體中文">翻譯為：繁體中文</option>
+                    <option value="English">翻譯為：English</option>
+                    <option value="日本語">翻譯為：日本語</option>
+                </select>
+                <textarea id="source-text" placeholder="請輸入需要翻譯的文字..."></textarea>
+                <button id="translate-btn">啟動 AI 翻譯</button>
+            </div>
+            
+            <div class="output-section">
+                <div id="loading" class="hidden">模型推論中，請稍候...</div>
+                <textarea id="result-text" placeholder="翻譯結果將顯示於此..." readonly></textarea>
+            </div>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

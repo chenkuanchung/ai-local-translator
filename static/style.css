@@ -1,0 +1,40 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.container {
+    background-color: #ffffff;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+    border-top: 5px solid #0078D4;
+}
+header h1 { margin: 0; color: #2c3e50; }
+header span { color: #0078D4; font-weight: 300; }
+header p { color: #7f8c8d; font-size: 0.9em; margin-bottom: 20px; }
+textarea {
+    width: 100%; height: 150px; padding: 12px;
+    border: 1px solid #dce1e6; border-radius: 8px;
+    resize: none; font-size: 16px; box-sizing: border-box;
+    margin-bottom: 15px; background-color: #fafbfc;
+}
+select {
+    padding: 10px; border-radius: 6px; border: 1px solid #dce1e6;
+    margin-bottom: 15px; font-size: 16px; outline: none;
+}
+button {
+    background-color: #0078D4; color: white; border: none;
+    padding: 12px 24px; border-radius: 6px; cursor: pointer;
+    font-size: 16px; font-weight: bold; transition: background-color 0.3s;
+}
+button:hover { background-color: #005a9e; }
+.hidden { display: none; }
+#loading { color: #0078D4; font-weight: bold; margin-bottom: 10px; }

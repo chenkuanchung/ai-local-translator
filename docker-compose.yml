@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  # API 與前端網頁服務
+  translation-api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - OLLAMA_HOST=http://ollama-service:11434
+      - MODEL_NAME=${MODEL_NAME:-qwen2.5:0.5b} 
+    depends_on:
+      - ollama-service
+
+  # LLM 推論引擎服務
+  ollama-service:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    # 若在 Linux 環境具備 GPU，可解除下方註解啟用硬體加速
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
+
+  # 初始化任務：自動下載所需模型
+  ollama-init:
+    image: ollama/ollama:latest
+    depends_on:
+      - ollama-service
+    environment:
+      - OLLAMA_HOST=http://ollama-service:11434
+    command: pull ${MODEL_NAME:-qwen2.5:0.5b}
+
+volumes:
+  ollama_data:
