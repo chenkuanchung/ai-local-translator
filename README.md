@@ -3,6 +3,14 @@
 > 專為邊緣運算與微服務架構設計的輕量化地端 AI 翻譯系統。
 > A scalable and decoupled AI translation microservice built with FastAPI and Ollama.
 
+## 🏗️ 系統架構 (Architecture)
+
+![Local AI Translator Microservices Architecture](./architecture.png)
+
+本專案採用完整的**前後端分離與解耦微服務架構**，確保系統具備高度的靈活性與跨硬體移植性。
+
+---
+
 ## 🌟 專案亮點 (Features)
 
 * **微服務架構 (Microservices)**：前後端完全分離，後端 API 與 AI 推論引擎 (Ollama) 解耦，具備高度獨立擴展性。
